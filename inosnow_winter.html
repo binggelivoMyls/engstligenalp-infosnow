@@ -2952,16 +2952,16 @@
                                 }
                             }
         
-                            $.getJSON('https://engstligenalp.ch/wp-content/infosnow/winter.json', function(data) {
-                            //$.getJSON('winter.json', function (data) {
+                            //$.getJSON('https://engstligenalp.ch/wp-content/infosnow/winter.json', function(data) {
+                            $.getJSON('winter.json', function (data) {
                                 /* Betriebsnwes */
                                 //news = data.Resort.ResortDailyNews_de.replaceAll('\n', '<br>');
                                 //$(".infosnownews").html(news);
         
         
                                 /* Betriebszeiten und Saisons */
-                                $.getJSON('https://engstligenalp.ch/wp-content/infosnow/sommer.json', function (data2) {
-                                //$.getJSON('sommer.json', function (data2) {
+                                //$.getJSON('https://engstligenalp.ch/wp-content/infosnow/sommer.json', function (data2) {
+                                $.getJSON('sommer.json', function (data2) {
                                     saison = data2.Resort.Saison;
                                     saison2 = data.Resort.Saison;
                                     saisonHtml = '';
@@ -3279,43 +3279,45 @@
                                 } else if (data.Resort.SKDailySnowConditionMain == 917){
                                     skipisteHtml += 'feucht';
                                 }
-                                skipisteHtml += ' / teilweise: ';
-                                if (data.Resort.SKDailySnowConditionMain == 900){
-                                    skipisteHtml += 'keine Meldung';
-                                } else if (data.Resort.SKDailySnowConditionMain == 901){
-                                    skipisteHtml += 'pulver';
-                                } else if (data.Resort.SKDailySnowConditionMain == 902){
-                                    skipisteHtml += 'pulver-hart';
-                                } else if (data.Resort.SKDailySnowConditionMain == 903){
-                                    skipisteHtml += 'pulver-nass';
-                                } else if (data.Resort.SKDailySnowConditionMain == 904){
-                                    skipisteHtml += 'pulver-sulz';
-                                } else if (data.Resort.SKDailySnowConditionMain == 905){
-                                    skipisteHtml += 'hart';
-                                } else if (data.Resort.SKDailySnowConditionMain == 906){
-                                    skipisteHtml += 'hart-pulver';
-                                } else if (data.Resort.SKDailySnowConditionMain == 907){
-                                    skipisteHtml += 'hart-nass';
-                                } else if (data.Resort.SKDailySnowConditionMain == 908){
-                                    skipisteHtml += 'hart-sulz';
-                                } else if (data.Resort.SKDailySnowConditionMain == 909){
-                                    skipisteHtml += 'sulz';
-                                } else if (data.Resort.SKDailySnowConditionMain == 910){
-                                    skipisteHtml += 'sulz-pulver';
-                                } else if (data.Resort.SKDailySnowConditionMain == 911){
-                                    skipisteHtml += 'sulz-nass';
-                                } else if (data.Resort.SKDailySnowConditionMain == 912){
-                                    skipisteHtml += 'sulz-hart';
-                                } else if (data.Resort.SKDailySnowConditionMain == 913){
-                                    skipisteHtml += 'nass';
-                                } else if (data.Resort.SKDailySnowConditionMain == 914){
-                                    skipisteHtml += 'nass-pulver';
-                                } else if (data.Resort.SKDailySnowConditionMain == 915){
-                                    skipisteHtml += 'nass-sulz';
-                                } else if (data.Resort.SKDailySnowConditionMain == 916){
-                                    skipisteHtml += 'nass-hart';
-                                } else if (data.Resort.SKDailySnowConditionMain == 917){
-                                    skipisteHtml += 'feucht';
+                                if (data.Resort.SKDailySnowConditionMain != data.Resort.SKDailySnowConditionMain) {
+                                    skipisteHtml += ' / teilweise: ';
+                                    if (data.Resort.SKDailySnowConditionMain == 900){
+                                        skipisteHtml += 'keine Meldung';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 901){
+                                        skipisteHtml += 'pulver';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 902){
+                                        skipisteHtml += 'pulver-hart';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 903){
+                                        skipisteHtml += 'pulver-nass';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 904){
+                                        skipisteHtml += 'pulver-sulz';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 905){
+                                        skipisteHtml += 'hart';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 906){
+                                        skipisteHtml += 'hart-pulver';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 907){
+                                        skipisteHtml += 'hart-nass';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 908){
+                                        skipisteHtml += 'hart-sulz';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 909){
+                                        skipisteHtml += 'sulz';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 910){
+                                        skipisteHtml += 'sulz-pulver';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 911){
+                                        skipisteHtml += 'sulz-nass';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 912){
+                                        skipisteHtml += 'sulz-hart';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 913){
+                                        skipisteHtml += 'nass';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 914){
+                                        skipisteHtml += 'nass-pulver';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 915){
+                                        skipisteHtml += 'nass-sulz';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 916){
+                                        skipisteHtml += 'nass-hart';
+                                    } else if (data.Resort.SKDailySnowConditionMain == 917){
+                                        skipisteHtml += 'feucht';
+                                    }
                                 }
                                 skipisteHtml += '<br>Beschneit: ' + data.Resort.SKDailySlopesWithArtificialSnowLength + " von " + data.Resort.SKDailySlopesWithArtificialSnowLengthTotal + '<br>Bemerkungen: ' + data.Resort.SKDailyRemarks_de + '<br><br><br>';
                                 skipisteHtml2 = '';
