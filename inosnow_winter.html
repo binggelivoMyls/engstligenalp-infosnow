@@ -2784,7 +2784,7 @@
                                             </g>
                                         </g>
                                     </g>
-                                    </svg>
+                                </svg>
                                 </div>
                                 <div class="map-controls">
                                     <i class="bx bx-plus" id="zoom-in"></i>
@@ -2952,16 +2952,16 @@
                                 }
                             }
         
-                            //$.getJSON('https://engstligenalp.ch/wp-content/infosnow/winter.json', function(data) {
-                            $.getJSON('winter.json', function (data) {
+                            $.getJSON('https://engstligenalp.ch/wp-content/infosnow/winter.json', function(data) {
+                            //$.getJSON('winter.json', function (data) {
                                 /* Betriebsnwes */
                                 //news = data.Resort.ResortDailyNews_de.replaceAll('\n', '<br>');
                                 //$(".infosnownews").html(news);
         
         
                                 /* Betriebszeiten und Saisons */
-                                //$.getJSON('https://engstligenalp.ch/wp-content/infosnow/sommer.json', function (data2) {
-                                $.getJSON('sommer.json', function (data2) {
+                                $.getJSON('https://engstligenalp.ch/wp-content/infosnow/sommer.json', function (data2) {
+                                //$.getJSON('sommer.json', function (data2) {
                                     saison = data2.Resort.Saison;
                                     saison2 = data.Resort.Saison;
                                     saisonHtml = '';
@@ -3030,6 +3030,7 @@
                                 if (bahn.length == undefined){
                                     bahn = JSON.parse("[" + JSON.stringify(bahn) + "]");
                                 }
+                                bahnHtml += "<p>" + data.Resort.SKDailyFacilitiesRemarks_de.replaceAll("\n", "<br>") + "</p><br>";
                                 while (bahn[i]) {
                                     bahnHtml += '<div class="smallbox_info info_responsive" apgid="' + bahn[i].Id + '">' +
                                         '<span class="' + statusCss(bahn[i].StatusID) + '"></span>' +
@@ -3319,7 +3320,7 @@
                                         skipisteHtml += 'feucht';
                                     }
                                 }
-                                skipisteHtml += '<br>Beschneit: ' + data.Resort.SKDailySlopesWithArtificialSnowLength + " von " + data.Resort.SKDailySlopesWithArtificialSnowLengthTotal + '<br>Bemerkungen: ' + data.Resort.SKDailyRemarks_de + '<br><br><br>';
+                                skipisteHtml += '<br>Beschneit: ' + data.Resort.SKDailySlopesWithArtificialSnowLength + " von " + data.Resort.SKDailySlopesWithArtificialSnowLengthTotal + '<br>Bemerkungen: ' + data.Resort.SKDailyRemarks_de + '</p><br>';
                                 skipisteHtml2 = '';
                                 i = 0;
         
@@ -3361,6 +3362,21 @@
                                 if (funpark.length == undefined){
                                     funpark = JSON.parse("[" + JSON.stringify(funpark) + "]");
                                 }
+                                funparkHtml += "<p>Pistenzustand: ";
+                                if (data.Resort.SBDailyConditionOfRuns == 1100) {
+                                    funparkHtml += "präpariert";
+                                } else if (data.Resort.SBDailyConditionOfRuns == 1101) {
+                                    funparkHtml += "geschlossen";
+                                } else if (data.Resort.SBDailyConditionOfRuns == 1102) {
+                                    funparkHtml += "Saisonschluss";
+                                } else if (data.Resort.SBDailyConditionOfRuns == 1103) {
+                                    funparkHtml += "World Cup-Verhältnisse";
+                                } else if (data.Resort.SBDailyConditionOfRuns == 1104) {
+                                    funparkHtml += "offen";
+                                } else if (data.Resort.SBDailyConditionOfRuns == 1105) {
+                                    funparkHtml += "heute nicht präpariert";
+                                }
+                                funparkHtml += "</p><br>";
                                 while (funpark[i]) {
                                     funparkHtml += '<div class="smallbox_info info_responsive" apgid="' + funpark[i].Id + '">' +
                                         '<span class="' + statusCss(funpark[i].StatusID) + '"></span>' +
